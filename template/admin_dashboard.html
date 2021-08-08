@@ -1,0 +1,93 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card1">
+                    <h3>{{totalDoctorCount}}</h3>
+                    <h4>Total Doctor</h4>
+                    <p>Approval Required : {{pendingDoctorCount}}</p>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="card2">
+                    <h3>{{totalPatientCount}}</h3>
+                    <h4>Total Patient</h4>
+                    <p>Want to Admit: {{pendingPatientCount}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card3">
+                    <h3>{{totalAppointmentCount}}</h3>
+                    <h4>Total Appointment</h4>
+                    <p>Approve Appointment: {{pendingAppointmentCount}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row table">
+            <div class="col">
+                <h5>Recent Doctor</h5>
+                <table class="table-striped table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for data in doctor_data%}
+                    <tr>
+                        <td>{{data.get_name}}</td>
+                        <td>{{data.address}}</td>
+                        <td>{{data.mobile}}</td>
+                        {%if data.status%}
+                        <td>Permanent</td>
+                        {% else %}
+                        <td> On Hold</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col">
+                <h5>Recent Patient</h5>
+                <table class="table-striped table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for data in patient_data%}
+                    <tr>
+                        <td>{{data.get_name}}</td>
+                        <td>{{data.address}}</td>
+                        <td>{{data.mobile}}</td>
+                        {% if data.status%}
+                        <td>Admit</td>
+                        {% else %}
+                        <td>Hold</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock%}
+</body>
+
+</html>

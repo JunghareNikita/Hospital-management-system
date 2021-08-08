@@ -1,0 +1,58 @@
+{% extends 'admin_base.html' %}
+{% load crispy_forms_tags %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Add Doctor</h2>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{doctorUser.first_name|as_crispy_field}}
+                </div>
+                <div class="col-sm-6">
+                    {{doctorUser.last_name|as_crispy_field}}
+                </div>
+                <div class="col-sm-4">
+                    {{doctorUser.email|as_crispy_field}}
+                </div>
+                <div class="col-sm-4">
+                    {{doctorUser.username|as_crispy_field}}
+                </div>
+                <div class="col-sm-4">
+                    {{doctorDetail.mobile|as_crispy_field}}
+                </div>
+
+                <div class="col-sm-6">
+                    {{doctorUser.password|as_crispy_field}}
+                </div>
+
+                <div class="col-sm-6">
+                    {{doctorDetail.department|as_crispy_field}}
+                </div>
+                <div class="col-sm-12">
+                    {{doctorDetail.address|as_crispy_field}}
+                </div>
+            </div>
+
+            <input type="submit" value="Update" class="btn btn-info">
+            <a href="{% url 'adminlogin' %}">login</a>
+
+        </form>
+
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

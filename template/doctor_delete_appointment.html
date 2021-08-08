@@ -1,0 +1,34 @@
+{% extends 'doctor_base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h5>Delete Appointment</h5>
+        <table class="table">
+            <tr>
+                <th>Patient Name</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+            {% for a,p in appointments %}
+            <tr>
+                <td>{{a.patientName}}</td>
+                <td>{{a.description}}</td>
+                <td><a href="{% url 'delete_appointment_view' a.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

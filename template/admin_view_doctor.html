@@ -1,0 +1,44 @@
+{%extends 'admin_base.html '%}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h5>Doctor Record</h5>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>mobile</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for doctor in doctor%}
+            <tr>
+                <td>{{doctor.get_name}}</td>
+                <td>{{doctor.address}}</td>
+                <td>{{doctor.department}}</td>
+                <td>{{doctor.mobile}}</td>
+                <td><a href="{% url 'admin_update_doctor' doctor.id %}" class="icofont-ui-edit"></a></td>
+                <td><a href="{% url 'admin_delete_doctor' doctor.id %}" class="icofont-ui-delete text-danger"></a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    {% endblock%}
+</body>
+
+</html>

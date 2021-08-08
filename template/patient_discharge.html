@@ -1,0 +1,108 @@
+{% extends 'patient_base.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    {%if is_discharged%}
+    <div class="invoice-box" id="invoice">
+        <table class="table" cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1>Hospital Management</h1>
+                            </td>
+                            <td>
+                                Admit Date: {{admitDate}}<br>
+                                Release Date: {{releaseDate}}<br>
+                                Day Spend: {{daySpent}}<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Patient Name: {{patientName}}<br>
+                                Address: {{address}}<br>
+                                Mobile: {{mobile}}<br>
+                            </td>
+                            <td>Doctor Name: {{assignedDoctorName}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="heading">
+                <td colspan="2">
+                    Disease and Symptom
+                </td>
+            </tr>
+            <tr class="details">
+                <td>{{symptoms}}</td>
+            </tr>
+            <tr class="heading">
+                <td>Item</td>
+                <td>Price</td>
+            </tr>
+
+            <tr class="item">
+                <td>
+                    Room Charge (per day)
+                </td>
+                <td>
+                    {{roomCharge}}
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Doctor Fee
+                </td>
+                <td>
+                    {{doctorFee}}
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Medicine Cost
+                </td>
+                <td>
+                    {{medicineCost}}
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Other Charges
+                </td>
+                <td>
+                    {{otherCharges}}
+                </td>
+            </tr>
+            <tr class="last-item">
+                <td>
+                    Total Bill
+                </td>
+
+                <td>
+                    {{total}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="print btn btn-primary" onclick="print_function()">Print</button>
+    {% endif %}
+    {% endblock %}
+</body>
+
+</html>

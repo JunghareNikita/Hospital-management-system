@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-4\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
+</head>
+
+<body>
+    <div class="sidebar">
+        <img src="{% static 'images/images.png' %}" alt="lobo">
+        <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+        <p>Doctor</p>
+        <ul>
+            <li><a href="{% url 'doctor_dashboard' %}"><span class="icofont-dashboard"></span>Dashboard</a></li>
+            <li><a href="{% url 'doctor_patient_view'%}"><span class="icofont-patient-bed"></span>Patient</a></li>
+            <li><a href="{% url 'doctor_appointment_view' %}"><span class="icofont-patient-file"></span>Appointment</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <nav class="navbar bg-info">
+            <div class="nav-button">
+                <span class="icofont-navigation-menu" onclick="sidebar_toggle()"></span>
+                <h4>Dashboard</h4>
+            </div>
+            <div class="search-wrapper">
+                <span class="icofont-search"></span>
+                <input type="text" placeholder="search" class="search">
+            </div>
+            <a href="{%url 'logout' %}" class="logout">logout</a>
+        </nav>
+        {% block content%}
+        {% endblock %}
+    </div>
+    <script src="{% static 'style.js' %}"></script>
+</body>
+
+</html>

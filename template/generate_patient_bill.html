@@ -1,0 +1,110 @@
+{% extends 'admin_base.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="invoice-box">
+        <table class="table" cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1>Hospital Management</h1>
+                            </td>
+                            <td>
+                                Admit Date: {{patientDict.admitDate}}<br>
+                                Release Date: {{patientDict.todayDate}}<br>
+                                Day Spend: {{patientDict.day}}<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Patient Name: {{patientDict.name}}<br>
+                                Address: {{patientDict.address}}<br>
+                                Mobile: {{patientDict.mobile}}<br>
+                            </td>
+                            <td>Doctor Name: {{patientDict.assignedDoctorName}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="heading">
+                <td>
+                    Disease and Symptom
+                </td>
+                <td></td>
+            </tr>
+            <tr class="details">
+                <td>{{patientDict.symptoms}}</td>
+            </tr>
+            <tr class="heading">
+                <td>Item</td>
+                <td>Price</td>
+            </tr>
+
+
+            <form method="POST">
+                {% csrf_token %}
+                <tr class="item">
+                    <td>
+                        Room Charge (per day)
+                    </td>
+                    <td>
+                        <input name="roomCharge" type="number" value="" placeholder="In Rupees">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Doctor Fee
+                    </td>
+                    <td>
+                        <input name="doctorFee" type="number" value="" placeholder="In Rupees">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Medicine Cost
+                    </td>
+                    <td>
+                        <input type="number" name="medicineCost" placeholder="In Rupees" value="">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Other Charges
+                    </td>
+                    <td>
+                        <input type="number" name="otherCharges" placeholder="In Rupees" value="">
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td></td>
+
+                    <td>
+                        <input type="submit" name="submit" value="Generate Bill" class="btn btn-primary">
+                    </td>
+                </tr>
+
+            </form>
+
+        </table>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

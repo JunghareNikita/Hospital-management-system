@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-4/bootstrap.min.css' %}">
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="loginForm">
+            <form method="POST">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {% render_field form.username class="form-control" placeholder="Username" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {% render_field form.password class="form-control" placeholder="password"%}
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="login" class="btn btn-primary">
+
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

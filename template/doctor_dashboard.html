@@ -1,0 +1,44 @@
+{% extends 'doctor_base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {%block content%}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card1 link">
+                    <p>Patient Under You</p>
+                    {{patientCount}}
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card2 link">
+                    <p>Appointment for You</p>
+                    {{appointmentCount}}
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card3 link">
+                    <p>Your Patient Discharge</p>
+                    {{dischargePatientCount}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

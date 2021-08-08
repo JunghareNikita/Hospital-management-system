@@ -1,0 +1,43 @@
+{%extends 'admin_dashboard.html '%}
+{% load static %}
+{% include 'admin_dashboard.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card1 link">
+                    <a href="{% url 'admin_view_patient' %}">Patient Record</a>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="card2 link">
+                    <a href="{% url 'admin_add_patient' %}">Admit Patient</a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card1 link">
+                    <a href="{% url 'admin_approve_patient_view' %}">Approve Patient</p></a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card3 link">
+                    <a href="{% url 'admin_discharge_patient_view' %}">Patient Discharge</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock%}
+</body>
+
+</html>

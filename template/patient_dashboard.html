@@ -1,0 +1,58 @@
+{% extends 'patient_base.html'%}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card1 link">
+                    <h4>doctor Name</h4>
+                    <p>{{doctor.get_name}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card2 link">
+                    <h4>Doctor Mobile</h4>
+                    <p>{{doctor.mobile}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card3 link">
+                    <h4>Doctor Address</h4>
+                    <p>{{doctor.address}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card2 link">
+                    <h4>Symptoms</h4>
+                    <p>{{patient.symptoms}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card3 link">
+                    <h4>Doctor Department</h4>
+                    <p>{{doctor.department}}</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card1 link">
+                    <h4>Date of Admit</h4>
+                    <p>{{patient.dataOfAdmit}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

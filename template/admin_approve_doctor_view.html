@@ -1,0 +1,37 @@
+{%extends 'admin_base.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <h5>Approve Doctor</h5>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>Approve</th>
+            <th>Reject</th>
+        </tr>
+        {% for doctor in doctor %}
+        <tr>
+            <td>{{doctor.get_name}}</td>
+            <td>{{doctor.address}}</td>
+            <td>{{doctor.mobile}}</td>
+            <td><a href="{% url 'admin_approve_doctor' doctor.id %}">ok</a></td>
+            <td><a href="#">reject</a></td>
+        </tr>
+    </table>
+
+
+    {% endfor %}
+    {% endblock %}
+</body>
+
+</html>

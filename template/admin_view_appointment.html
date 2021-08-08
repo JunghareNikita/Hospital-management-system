@@ -1,0 +1,36 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <h5>View Appointment</h5>
+    <table class="table">
+      <tr>
+        <th>Doctor Name</th>
+        <th>Patient Name</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+      {% for a in appointment %}
+      <tr>
+        <td> {{a.doctorName}}</td>
+        <td>{{a.patientName}}</td>
+        <td>{{a.description}}</td>
+        <td>{{a.appointmentDate}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

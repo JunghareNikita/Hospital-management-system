@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>doctor signup</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'bootstrap-4\bootstrap.min.css'%}">
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-6">
+          {{doctorUser.first_name|as_crispy_field}}
+        </div>
+        <div class="col-sm-6">
+          {{doctorUser.last_name|as_crispy_field}}
+        </div>
+        <div class="col-sm-4">
+          {{doctorUser.email|as_crispy_field}}
+        </div>
+        <div class="col-sm-4">
+          {{doctorUser.username|as_crispy_field}}
+        </div>
+        <div class="col-sm-4">
+          {{doctorDetail.mobile|as_crispy_field}}
+        </div>
+
+        <div class="col-sm-6">
+          {{doctorUser.password|as_crispy_field}}
+        </div>
+
+        <div class="col-sm-6">
+          {{doctorDetail.department|as_crispy_field}}
+        </div>
+        <div class="col-sm-12">
+          {{doctorDetail.address|as_crispy_field}}
+        </div>
+      </div>
+
+      <input type="submit" value="submit" class="btn btn-info">
+      <a href="{% url 'doctorlogin'%}" class="btn btn-info">login</a>
+
+    </form>
+
+    {% if message %}
+    {% for message in message %}
+    {{message}}
+    {%endfor%}
+    {%endif%}
+  </div>
+  {% endblock %}
+</body>
+
+</html>

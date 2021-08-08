@@ -1,0 +1,35 @@
+{% extends 'admin_base.html'%}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h5>specilasation</h5>
+        <table class="table">
+            <tr>
+                <th>Department</th>
+                <th>Name</th>
+                <th>mobile</th>
+            </tr>
+            {% for doctor in doctor%}
+            <tr>
+                <td>{{doctor.department}}</td>
+                <td>{{doctor.get_name}}</td>
+                <td>{{doctor.mobile}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device=width, initial-scale=1.0">
+    <title>Register</title>
+    <!--    {% load static %}-->
+    <!--    <link rel="stylesheet" href="{%static 'bootstrap-4\css\bootstrap.min.css'%}">-->
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+
+        <h2>Registration Form</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>First Name</label><input type="text" name="first_name" class="form-control">
+                <label>Last Name</label><input type="text" name="last_name" class="form-control">
+                <label>Username</label><input type="text" name="username" class="form-control">
+                <label>Email</label><input type="text" name="email" class="form-control">
+                <label>Password</label><input type="password" name="password" class="form-control">
+                <br>
+                <input type="submit" name="submit" class="btn btn-info">
+                <a href="{% url 'adminlogin'%}" class="btn btn-info">Login</a>
+        </form>
+    </div>
+
+    </div>
+    {% if messages %}
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+    {% endif%}
+
+
+    {% endblock %}
+
+</body>
+
+</html>

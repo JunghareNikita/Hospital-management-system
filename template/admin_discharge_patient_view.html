@@ -1,0 +1,50 @@
+{% extends 'admin_base.html'%}
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Discharge</title>
+
+</head>
+
+<body>
+  {% block content %}
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="heading">
+        <h5>Discharge Patient</h5>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Symptoms</th>
+            <th>Mobile</th>
+            <th>Discharge</th>
+          </tr>
+        </thead>
+        {% for p in patient %}
+        <tr>
+          <td> {{p.get_name}}</td>
+          <td>{{p.address}}</td>
+          <td>{{p.symptoms}}</td>
+          <td>{{p.mobile}}</td>
+          <td><a class="btn btn-info text-white btn-xs" href="{% url 'discharge_patient_view' p.id  %}"
+              style="color: black;">discharge</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+
+  </div>
+
+
+  {% endblock content %}
+</body>
+
+</html>

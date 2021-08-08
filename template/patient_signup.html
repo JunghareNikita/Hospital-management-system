@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap-4\bootstrap.min.css'%}">
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6">{{patientUser.first_name|as_crispy_field}}</div>
+                <div class="col-sm-6">{{patientUser.last_name|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientUser.email|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientDetail.mobile|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientUser.username|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientUser.password|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientDetail.symptoms|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientDetail.assignedDoctorId|as_crispy_field}}</div>
+                <div class="col-sm-8">{{patientDetail.address|as_crispy_field}}</div>
+                <div class="col-sm-4">{{patientDetail.dataOfAdmit|as_crispy_field}}</div>
+            </div>
+
+            <input type="submit" class="btn btn-info" value="submit">
+            <a href="{%url 'patientlogin'%}" class="btn btn-info">login</a>
+        </form>
+
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

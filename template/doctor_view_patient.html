@@ -1,0 +1,40 @@
+{% extends 'doctor_base.html' %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h5>Patient Record</h5>
+        <table class="table">
+            <tr>
+                <th>Full Name</th>
+                <th>Symptom</th>
+                <th>mobile</th>
+                <th>Address</th>
+                <th>Admit Date</th>
+            </tr>
+            {% for p in patient %}
+            <tr>
+                <td>{{p.get_name}}</td>
+                <td>{{p.symptoms}}</td>
+                <td>{{p.mobile}}</td>
+                <td>{{p.address}}</td>
+                <td>{{p.dataOfAdmit}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    {% endblock %}
+</body>
+
+</html>
